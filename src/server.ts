@@ -1,25 +1,38 @@
+import "reflect-metadata";
+import { createConnection, Connection, getConnection } from "typeorm";
 import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 import compression from "compression";
 
-import indexRoutes from "./routes/indexRoutes";
-import postRoutes from "./routes/postRoutes";
+import indexRoutes from "./routes/index.routes";
+import postRoutes from "./routes/post.routes";
+import userRoutes from "./routes/user.routes";
 
 class Server {
-  public app: express.Application;
-
+  /**
+   * Propiedad que contiene el objeto de Express, es decir, la aplicación backend.
+   */
+  public app!: express.Application;
+  /**
+   * Se inicializa el servidor en conjunto de sus configuraciones, middlewares y rutas.
+   */
   constructor() {
     this.app = express();
     this.config();
     this.middlewares();
     this.routes();
   }
-
+  /**
+   * Metodo que inicializa las configuraciones de la app de Express.
+   */
   config() {
     this.app.set("port", process.env.PORT || 3000);
   }
+  /**
+   * Metodo que inicializa los middlewares de la app de Express.
+   */
 
   middlewares() {
     this.app.use(express.json());
@@ -29,12 +42,17 @@ class Server {
     this.app.use(cors());
     this.app.use(compression());
   }
-
+  /**
+   * Metodo que inicializa las rutas de la app de Express.
+   */
   routes() {
     this.app.use(indexRoutes);
     this.app.use("/post", postRoutes);
+    this.app.use("/user", userRoutes);
   }
-
+  /**
+   * Metodo que inicializa el servidor.
+   */
   start() {
     this.app.listen(this.app.get("port"), () => {
       console.log("Server running on port", this.app.get("port"));
@@ -43,4 +61,10 @@ class Server {
 }
 
 const server = new Server();
-server.start();
+/**
+ * Se realiza la conexión a la base de datos via ORM, si se logra, se inicia el servidor.
+ */
+createConnection().then(() => {
+  console.log("orm conectado");
+  server.start();
+});
