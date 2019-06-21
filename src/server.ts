@@ -5,10 +5,12 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 import compression from "compression";
+import passport from "passport";
 
 import indexRoutes from "./routes/index.routes";
 import postRoutes from "./routes/post.routes";
 import userRoutes from "./routes/user.routes";
+import oauthRoutes from "./routes/oauth.routes";
 
 class Server {
   /**
@@ -41,6 +43,7 @@ class Server {
     this.app.use(helmet());
     this.app.use(cors());
     this.app.use(compression());
+    this.app.use(passport.initialize());
   }
   /**
    * Metodo que inicializa las rutas de la app de Express.
@@ -49,6 +52,7 @@ class Server {
     this.app.use(indexRoutes);
     this.app.use("/post", postRoutes);
     this.app.use("/user", userRoutes);
+    this.app.use("/oauth", oauthRoutes);
   }
   /**
    * Metodo que inicializa el servidor.

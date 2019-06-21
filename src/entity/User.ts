@@ -6,11 +6,20 @@ export class User {
   id!: number;
 
   @Column()
-  firstName!: string;
+  nombre!: string;
 
   @Column()
-  lastName!: string;
+  apellido!: string;
 
   @Column()
-  age!: number;
+  facebook_id!: string;
+
+  @Column()
+  google_id!: string;
+
+  @Column()
+  email!: string;
+
+  @Column()
+  password!: string;
 }
