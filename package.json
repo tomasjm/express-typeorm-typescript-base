@@ -1,43 +1,45 @@
 {
-   "name": "typescript-express-api",
-   "version": "1.0.0",
-   "description": "",
-   "main": "index.js",
-   "scripts": {
-      "ts": "tsc -w",
-      "dev": "nodemon ./build/server.js",
-      "start": "ts-node src/index.ts",
-      "documentation": "node_modules/.bin/typedoc --out docs --mode modules --theme minimal ./src"
-   },
-   "author": "Tomás Jiménez",
-   "license": "ISC",
-   "dependencies": {
-      "@types/jsonwebtoken": "^8.3.2",
-      "bcrypt": "^3.0.6",
-      "compression": "^1.7.4",
-      "cors": "^2.8.5",
-      "express": "^4.17.1",
-      "helmet": "^3.18.0",
-      "jsonwebtoken": "^8.5.1",
-      "moment": "^2.24.0",
-      "morgan": "^1.9.1",
-      "mysql": "^2.14.1",
-      "passport": "^0.4.0",
-      "passport-facebook-token": "^3.3.0",
-      "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.18"
-   },
-   "devDependencies": {
-      "@types/compression": "0.0.36",
-      "@types/cors": "^2.8.5",
-      "@types/express": "^4.17.0",
-      "@types/helmet": "0.0.43",
-      "@types/morgan": "^1.7.35",
-      "@types/node": "^8.0.29",
-      "@types/passport": "^1.0.0",
-      "nodemon": "^1.19.1",
-      "ts-node": "3.3.0",
-      "typedoc": "^0.14.2",
-      "typescript": "3.3.3333"
-   }
+  "name": "typescript-express-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ts": "tsc -w",
+    "dev": "nodemon ./build/index.js",
+    "start": "ts-node src/index.ts",
+    "documentation": "node_modules/.bin/typedoc --out docs --mode modules --theme minimal ./src"
+  },
+  "author": "Tomás Jiménez",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jsonwebtoken": "^8.3.2",
+    "bcrypt": "^3.0.6",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "mysql": "^2.14.1",
+    "passport": "^0.4.0",
+    "passport-facebook-token": "^3.3.0",
+    "reflect-metadata": "^0.1.10",
+    "socket.io": "^2.2.0",
+    "typeorm": "0.2.18"
+  },
+  "devDependencies": {
+    "@types/compression": "0.0.36",
+    "@types/cors": "^2.8.5",
+    "@types/express": "^4.17.0",
+    "@types/helmet": "0.0.43",
+    "@types/morgan": "^1.7.35",
+    "@types/node": "^8.0.29",
+    "@types/passport": "^1.0.0",
+    "@types/socket.io": "^2.1.2",
+    "nodemon": "^1.19.1",
+    "ts-node": "3.3.0",
+    "typedoc": "^0.14.2",
+    "typescript": "3.3.3333"
+  }
 }
