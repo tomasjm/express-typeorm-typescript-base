@@ -6,8 +6,8 @@ let config = {
       clientSecret: "secret"
     },
     facebook: {
-      clientID: "id",
-      clientSecret: "secret"
+      clientID: "654446205027302",
+      clientSecret: "397027a39d3a8618a329a79f4b61d8bc"
     }
   }
 };

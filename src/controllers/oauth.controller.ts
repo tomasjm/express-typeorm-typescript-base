@@ -26,7 +26,6 @@ class OAuthController {
     this.setupFacebookPassport(); // Facebook
   }
 
-
   /**
    * Método para inicializar la estrategia de autenticación de Facebook con Passportjs
    * Es necesario configurar el archivo en config.ts con el ClientID y ClientSecret de una aplicación
@@ -34,7 +33,7 @@ class OAuthController {
    */
   setupFacebookPassport() {
     /**
-     * Al inicializar la estrategia, este devuelve un callback luego de confirmar el token de acceso. 
+     * Al inicializar la estrategia, este devuelve un callback luego de confirmar el token de acceso.
      */
     passport.use(
       new FacebookTokenStrategy(
@@ -95,7 +94,6 @@ class OAuthController {
    * Función que se encarga de devolver el token (req.user) obtenido del Setup de Facebook.
    */
   facebookLogin(req: Request, res: Response) {
-    console.log("asdasdasd")
     res.send({
       response: true,
       data: req.user
@@ -105,7 +103,12 @@ class OAuthController {
   /**
    * Función que se encarga de revisar si hay un error en el checkeo de los tokens de acceso para autenticación OAuth.
    */
-  handleCallback(err: Errback, req: Request, res: Response, next: NextFunction) {
+  handleCallback(
+    err: Errback,
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
     if (err) {
       res.send({
         response: false,
@@ -116,4 +119,3 @@ class OAuthController {
 }
 const oauthController = new OAuthController();
 export default oauthController;
-

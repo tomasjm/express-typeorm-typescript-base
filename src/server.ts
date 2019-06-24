@@ -30,7 +30,7 @@ class Server {
    * Metodo que inicializa las configuraciones de la app de Express.
    */
   config() {
-    this.app.set("port", process.env.PORT || 3000);
+    this.app.set("port", process.env.PORT || 4000);
   }
   /**
    * Metodo que inicializa los middlewares de la app de Express.
