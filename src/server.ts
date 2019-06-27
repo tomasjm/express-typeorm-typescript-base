@@ -13,7 +13,6 @@ import userRoutes from "./routes/user.routes";
 import oauthRoutes from "./routes/oauth.routes";
 
 import { createServer, Server } from "http";
-import socketIo from "socket.io";
 
 export class MainServer {
   /**
@@ -21,14 +20,12 @@ export class MainServer {
    */
   private app!: express.Application;
   private server!: Server;
-  private io!: SocketIO.Server;
   /**
    * Se inicializa el servidor en conjunto de sus configuraciones, middlewares y rutas.
    */
   constructor() {
     this.app = express();
     this.server = createServer(this.app);
-    this.io = socketIo(this.server);
     this.config();
     this.middlewares();
     this.routes();
@@ -75,8 +72,8 @@ export class MainServer {
   public getApp(): express.Application {
     return this.app;
   }
-  public getIO(): socketIo.Server {
-    return this.io;
+  public getServer(): Server {
+    return this.server;
   }
 }
 

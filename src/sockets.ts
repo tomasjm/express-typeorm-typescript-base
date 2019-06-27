@@ -1,7 +1,10 @@
+import { Server } from "http";
+import socketio from "socket.io";
+
 export class SocketServer {
   private io: SocketIO.Server;
-  constructor(socketServer: SocketIO.Server) {
-    this.io = socketServer;
+  constructor(server: Server) {
+    this.io = socketio(server);
     this.startSockets();
   }
   private startSockets() {
@@ -16,5 +19,6 @@ export class SocketServer {
         console.log("Client disconnected");
       });
     });
+    console.log("SocketServer habilitado");
   }
 }
