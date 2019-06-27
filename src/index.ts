@@ -2,8 +2,16 @@ import { MainServer } from "./server";
 import { SocketServer } from "./sockets";
 import { GraphQLServer } from "./graphql";
 let appServer = new MainServer();
-let ioServer = new SocketServer(appServer.getServer());
-let graphqlServer = new GraphQLServer(appServer.getApp());
 let app = appServer.getApp();
+let server = appServer.getServer();
 
-export { app, ioServer, graphqlServer };
+/**
+ * INICIALIZACION DE AÑADIDOS MODULARES
+ */
+
+// Inicializa servidor de Socket-IO, comentar para desactivar
+let ioServer = new SocketServer(server);
+// Inicializa servidor de GraphQL y ApolloServer, comentar para desactivar
+let graphqlServer = new GraphQLServer(app);
+
+export { app };
